@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 140" width="880" height="140">
+  <defs>
+    <!-- Background terminal card gradient -->
+    <linearGradient id="ps-dark-bg" x1="0" y1="0" x2="880" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B132B" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#111B38" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#0B132B" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- PowerShell icon gradient -->
+    <linearGradient id="ps-icon-grad" x1="10" y1="10" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+
+    <!-- Subtle border gradient -->
+    <linearGradient id="ps-dark-border" x1="0" y1="0" x2="880" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#1E293B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Container Box with Rounded Corners -->
+  <rect x="2" y="2" width="876" height="136" rx="16" fill="url(#ps-dark-bg)" stroke="url(#ps-dark-border)" stroke-width="1.5"/>
+
+  <!-- Left Icon: PowerShell Terminal Badge (80x80) -->
+  <g transform="translate(42, 30)">
+    <!-- Terminal window outline -->
+    <rect x="0" y="0" width="80" height="80" rx="14" fill="#030816" stroke="#2563EB" stroke-width="2"/>
+    <rect x="0" y="0" width="80" height="20" rx="14" fill="#081432"/>
+    <rect x="0" y="10" width="80" height="10" fill="#081432"/>
+    <!-- Window buttons -->
+    <circle cx="14" cy="10" r="3" fill="#EF4444"/>
+    <circle cx="24" cy="10" r="3" fill="#F59E0B"/>
+    <circle cx="34" cy="10" r="3" fill="#10B981"/>
+
+    <!-- PowerShell prompt chevron & cursor -->
+    <path d="M 20 38 L 40 50 L 20 62" fill="none" stroke="url(#ps-icon-grad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="48" y1="62" x2="62" y2="62" stroke="#38BDF8" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Content Group -->
+  <g transform="translate(148, 30)">
+    <!-- Title / Wordmark -->
+    <text x="0" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-weight="800" font-size="34" letter-spacing="1.5" fill="#F8FAFC">
+      OMP<tspan fill="#38BDF8">-</tspan><tspan fill="#60A5FA">POWERSHELL</tspan>
+    </text>
+
+    <!-- Accent bar (PowerShell Blue, Cyan, Emerald) -->
+    <g transform="translate(0, 48)">
+      <rect x="0" y="0" width="90" height="3.5" rx="1.75" fill="#2563EB"/>
+      <rect x="96" y="0" width="90" height="3.5" rx="1.75" fill="#0284C7"/>
+      <rect x="192" y="0" width="90" height="3.5" rx="1.75" fill="#38BDF8"/>
+      <rect x="288" y="0" width="90" height="3.5" rx="1.75" fill="#10B981"/>
+    </g>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="74" font-family="'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace" font-size="13.5" font-weight="500" fill="#94A3B8" letter-spacing="0.2">
+      Native PowerShell Engine &amp; Tern Surface Integration for oh-my-pi
+    </text>
+  </g>
+
+  <!-- Right Badges -->
+  <g transform="translate(730, 44)">
+    <rect x="0" y="0" width="106" height="24" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <text x="53" y="16" text-anchor="middle" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="600" fill="#38BDF8">pwsh 7+ · 5.1</text>
+
+    <rect x="0" y="32" width="106" height="24" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    <text x="53" y="48" text-anchor="middle" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="600" fill="#10B981">Tern + ANSI</text>
+  </g>
+</svg>
