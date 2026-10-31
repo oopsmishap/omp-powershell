@@ -1,0 +1,32 @@
+{
+  "name": "omp-powershell",
+  "version": "1.0.0",
+  "description": "Native PowerShell support for oh-my-pi with rich TUI and Tern Surface Protocol (TSP) integration",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "test": "bun test"
+  },
+  "keywords": [
+    "omp",
+    "oh-my-pi",
+    "pi-extension",
+    "pi-package",
+    "powershell",
+    "pwsh",
+    "windows",
+    "terminal"
+  ],
+  "author": "mishap",
+  "license": "MIT",
+  "omp": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}
