@@ -270,6 +270,7 @@ function buildPowerShellHead(
 
 export const powershellRenderer = {
   mergeCallAndResult: true,
+  inline: true,
 
   describeCall(args: PowerShellArgs, options: RenderOptions): NativeToolView {
     const command = args?.command || formatPowerShellCommand(args);

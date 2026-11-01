@@ -8,6 +8,7 @@ import {
 } from "../src/powershell";
 import { powershellRenderer, type Theme } from "../src/render";
 import { extractPowerShellInnerCommand, registerPowerShellToolCallHooks } from "../src/hooks";
+import { registerPowerShellTool } from "../src/tools/powershell";
 import type { ExtensionAPI } from "@oh-my-pi/pi-coding-agent";
 
 // Mock Theme for ANSI renderer testing
@@ -326,5 +327,47 @@ describe("Hooks and Bash Interception", () => {
 
     const res = await toolCallHandler!(bashEvent);
     expect(res).toBeUndefined();
+  });
+});
+
+describe("Tool Registration & Card Deduplication", () => {
+  it("registers powershell and pwsh tools with mergeCallAndResult: true and inline: true", () => {
+    const registeredTools: any[] = [];
+    const chain = () => {
+      const obj: any = {};
+      obj.describe = () => obj;
+      obj.optional = () => obj;
+      return obj;
+    };
+    const mockZod: any = {
+      object: chain,
+      string: chain,
+      number: chain,
+      enum: chain,
+      record: chain,
+    };
+    const mockPi = {
+      zod: mockZod,
+      registerTool: (tool: any) => {
+        registeredTools.push(tool);
+      },
+    } as unknown as ExtensionAPI;
+    registerPowerShellTool(mockPi);
+
+    expect(registeredTools.length).toBe(2);
+
+    const psTool = registeredTools.find((t) => t.name === "powershell");
+    expect(psTool).toBeDefined();
+    expect(psTool.mergeCallAndResult).toBe(true);
+    expect(psTool.inline).toBe(true);
+    expect(typeof psTool.describeCall).toBe("function");
+    expect(typeof psTool.describeResult).toBe("function");
+
+    const pwshTool = registeredTools.find((t) => t.name === "pwsh");
+    expect(pwshTool).toBeDefined();
+    expect(pwshTool.mergeCallAndResult).toBe(true);
+    expect(pwshTool.inline).toBe(true);
+    expect(typeof pwshTool.describeCall).toBe("function");
+    expect(typeof pwshTool.describeResult).toBe("function");
   });
 });

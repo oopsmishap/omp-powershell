@@ -136,6 +136,8 @@ export function registerPowerShellTool(pi: ExtensionAPI) {
       timeout: z.number().optional().describe("Execution timeout in seconds (default: 300)"),
       i: z.string().optional().describe("Present-participle intent summary (e.g. 'Querying running processes')"),
     }),
+    mergeCallAndResult: true,
+    inline: true,
     async execute(
       _toolCallId: string,
       params: PowerShellToolParams,
@@ -166,6 +168,8 @@ export function registerPowerShellTool(pi: ExtensionAPI) {
       timeout: z.number().optional().describe("Execution timeout in seconds (default: 300)"),
       i: z.string().optional().describe("Present-participle intent summary (e.g. 'Querying running processes')"),
     }),
+    mergeCallAndResult: true,
+    inline: true,
     async execute(
       _toolCallId: string,
       params: Omit<PowerShellToolParams, "edition">,
